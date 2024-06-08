@@ -74,6 +74,9 @@ WSGI_APPLICATION = 'banking_system.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+SUPABASE_URL = 'https://cmejrvjrejpytpdecsfd.supabase.co'
+SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNtZWpydmpyZWpweXRwZGVjc2ZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTc4MjM2NjcsImV4cCI6MjAzMzM5OTY2N30.qYNBF3LLGGwCV_Pz_StfJOIv8znEDqpHdsIoQAvJA34'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
