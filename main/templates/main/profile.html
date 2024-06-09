@@ -3,29 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="user.css">
 </head>
 <body>
     <div class="container">
-        <h2>Profile</h2>
-        <p>Username: {{ user.username }}</p>
-        <p>Account Number: {{ profile.account_number }}</p>
-        <p>Email: {{ user.email }}</p>
-        <a href="{% url 'wallet' %}" class="btn">Wallet</a>
-        <div class="actions">
-            <form method="post" action="{% url 'profile' %}">
-                {% csrf_token %}
-                <input type="number" name="amount" placeholder="Amount" required>
-                <button type="submit" name="action" value="add_money" class="btn">Add Money</button>
-                <button type="submit" name="action" value="withdraw_money" class="btn">Withdraw Money</button>
-                <input type="text" name="to_account" placeholder="To Account (for transfer)">
-                <button type="submit" name="action" value="transfer_money" class="btn">Transfer Money</button>
-            </form>
+        <div class="profile-card">
+            <div class="profile-header">
+                <h1>User Profile</h1>
+            </div>
+            <div class="profile-body">
+                <div class="profile-info">
+                    <img src="LOGO/user profile.png" alt="User Photo" class="profile-photo">
+                    <h2 id="fullName">Anna Belle</h2>
+                    <p id="email">Annabelle@example.com</p>
+                    <p id="accountNumber">Account Number: 123456789</p>
+                    <button id="editButton" class="btn">Edit Information</button>
+                    <a href="#"></a><button type="submit" class="btn">Wallet</button>
+
+                </div>
+                <div class="profile-edit" style="display: none;">
+                    <form id="profileForm">
+                        <div class="input-group">
+                            <label for="fullNameInput">Full Name</label>
+                            <input type="text" id="fullNameInput" name="fullName" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="Address">Address</label>
+                            <input type="text" id="AddressInput" name="fullAddress" optional>
+                        </div>
+                        <div class="input-group">
+                            <label for="Contact Number">Contact Number</label>
+                            <input type="text" id="ContactNumberInput" name="fullnumber" optional>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="emailInput">Email</label>
+                            <input type="email" id="emailInput" name="email" required>
+                        </div>
+                        <button type="submit" class="btn">Update Profile</button>
+                        <button type="button" id="cancelButton" class="btn btn-secondary">Cancel</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        {% if error %}
-            <p class="error">{{ error }}</p>
-        {% endif %}
     </div>
+    <script src="user.js"></script>
 </body>
 </html>
