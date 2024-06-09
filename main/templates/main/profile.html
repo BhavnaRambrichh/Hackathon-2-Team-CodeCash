@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Profile</h2>
+        <p>Username: {{ user.username }}</p>
+        <p>Account Number: {{ profile.account_number }}</p>
+        <p>Email: {{ user.email }}</p>
+        <a href="{% url 'wallet' %}" class="btn">Wallet</a>
+        <div class="actions">
+            <form method="post" action="{% url 'profile' %}">
+                {% csrf_token %}
+                <input type="number" name="amount" placeholder="Amount" required>
+                <button type="submit" name="action" value="add_money" class="btn">Add Money</button>
+                <button type="submit" name="action" value="withdraw_money" class="btn">Withdraw Money</button>
+                <input type="text" name="to_account" placeholder="To Account (for transfer)">
+                <button type="submit" name="action" value="transfer_money" class="btn">Transfer Money</button>
+            </form>
+        </div>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

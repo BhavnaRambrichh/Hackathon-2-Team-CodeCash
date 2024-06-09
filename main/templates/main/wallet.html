@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Wallet</h2>
+        <p>Balance: ${{ profile.balance }}</p>
+        <ul>
+            {% for transaction in transactions %}
+                <li>{{ transaction.timestamp }} - {{ transaction.from_account.account_number }} to {{ transaction.to_account.account_number }} - ${{ transaction.amount }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
