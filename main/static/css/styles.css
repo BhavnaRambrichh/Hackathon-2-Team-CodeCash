@@ -85,7 +85,7 @@ nav{
     padding-left: 0%;
     float:center;
     padding-top: 1px;
-   
+
 }
 .nav.logo a {
     color:white;
@@ -95,7 +95,7 @@ nav{
     
 
 }
-   
+
 .nav-links {
     list-style: none;
     display: flex;
@@ -106,15 +106,23 @@ nav{
 }
 
 .hero {
-    height: 100vh;
+    height: 100vh
     background: "{% url(Background.mp4)%}" no-repeat center center/cover;
-    display: flex;
+    display :flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: #fff;
     padding: 0 2rem;
+}
+
+.myVideo {
+    display : flex;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .hero h1 {
