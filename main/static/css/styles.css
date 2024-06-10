@@ -107,7 +107,6 @@ nav{
 
 .hero {
     height: 100vh;
-    background: url(Background.mp4) no-repeat center center/cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -115,6 +114,14 @@ nav{
     text-align: center;
     color: #fff;
     padding: 0 2rem;
+}
+
+#myVideo {
+    display : flex;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .hero h1 {
