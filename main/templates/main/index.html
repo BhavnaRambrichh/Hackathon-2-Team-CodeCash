@@ -12,8 +12,10 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <a href="index.html"> <img src="LOGO/BANK LOGO.png"></a>
-                <a href="index.html "> <img src="/main/templates/main/images/BANK LOGO.png"></a>
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'images/BANK_LOGO.png' %}" alt="Smart Bank Logo">
+                </a>
+                
             </div>
             <ul class="nav-links">
                 
