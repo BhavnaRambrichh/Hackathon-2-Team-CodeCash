@@ -38,7 +38,7 @@ def login_view(request):
                 return redirect('profile')
     else:
         form = UserLoginForm()
-    return render(request, 'main/login.html', {'form': form})
+    return render(request, 'main/login_signup.html', {'form': form})
 
 def profile(request):
     profile = Profile.objects.get(user=request.user)
