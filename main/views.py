@@ -17,7 +17,7 @@ def login_signup(request):
             user = form.save(commit=False)
             user.set_password(form.cleaned_data['password'])
             if Profile.objects.filter(user=user).exists():
-                return render(request, 'main/login_signup.html', {'form': form, 'error': 'You already have an account'})
+                return render(request, 'main/login_signup/', {'form': form, 'error': 'You already have an account'})
             user.save()
             Profile.objects.create(user=user, account_number=generate_account_number())
             login(request, user)
@@ -41,7 +41,7 @@ def login_view(request):
     return render(request, 'main/login_signup.html', {'form': form})
 
 def profile(request):
-    profile = Profile.objects.get(user=request.user)
+    profile = Profile.objects.all()
     if request.method == 'POST':
         form = TransactionForm(request.POST)
         if form.is_valid():
