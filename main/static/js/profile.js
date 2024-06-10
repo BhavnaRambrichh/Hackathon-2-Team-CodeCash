@@ -1,3 +1,14 @@
+const addMoneyButton = document.getElementById('addMoneyButton');
+const withdrawMoneyButton = document.getElementById('withdrawMoneyButton');
+const transferMoneyButton = document.getElementById('transferMoneyButton');
+
+addMoneyButton.addEventListener('click', () => {
+});
+
+withdrawMoneyButton.addEventListener('click', () => {
+});
+transferMoneyButton.addEventListener('click', () => {
+});
 document.addEventListener('DOMContentLoaded', function () {
     const editButton = document.getElementById('editButton');
     const cancelButton = document.getElementById('cancelButton');
