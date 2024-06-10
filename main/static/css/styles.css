@@ -85,7 +85,7 @@ nav{
     padding-left: 0%;
     float:center;
     padding-top: 1px;
-   
+
 }
 .nav.logo a {
     color:white;
@@ -95,7 +95,7 @@ nav{
     
 
 }
-   
+
 .nav-links {
     list-style: none;
     display: flex;
