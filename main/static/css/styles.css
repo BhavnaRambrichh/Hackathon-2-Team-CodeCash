@@ -106,8 +106,7 @@ nav{
 }
 
 .hero {
-    height: 100vh
-    background: "{% url(Background.mp4)%}" no-repeat center center/cover;
+    height: 100vh;
     display :flex;
     flex-direction: column;
     justify-content: center;
