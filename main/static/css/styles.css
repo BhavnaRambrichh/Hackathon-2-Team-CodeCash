@@ -50,7 +50,8 @@ nav{
     color: #203264;
     text-decoration: none;
     font-family:Helvetica, sans-serif;
-    justify-content: center;
+    display: flex;
+    justify-content: space-evenly;
     text-align:top right;
     font-weight: bolder;
     width: 10px;
@@ -81,15 +82,15 @@ nav{
 
 .nav.logo{
     display: flex;
-    align-items: center;
+    align-items: left;
 }
 
 .logo img {
-    max-width: 100px; /* Adjust size as needed */
+    max-width: 200px; /* Adjust size as needed */
     height: auto;
 }
 
-/*.nav.logo a {
+.nav.logo a {
     color:white;
     font-size: 1.5rem;
     text-decoration: none;
@@ -98,7 +99,7 @@ nav{
 
 }
 
-*/
+
 .nav-links {
     list-style: none;
     display: flex;

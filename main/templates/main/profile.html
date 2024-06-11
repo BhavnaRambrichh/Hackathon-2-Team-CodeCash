@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/profile.css'%}">
-    <script src="{% static 'js/profile.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'css/profile.css'%}?v=1.0">
 </head>
 <body>
     <div class="container">
@@ -16,16 +15,15 @@
             </div>
             <div class="profile-body">
                 <div class="profile-info">
-                    <img src="LOGO/user profile.png" alt="User Photo" class="profile-photo">
-                    <h2 id="fullName">{{user.name}}</h2>
-                    <p id="email">{{user.email}}</p>
-                    <p id="accountNumber">{{ profile.account_number }}</p>
+                    <img src="{% static 'images/user profile.png' %}" alt="User Profile"class="profile-photo">
+                    <h2 id="fullName">Anna Belle</h2>
+                    <p id="email">Annabelle@example.com</p>
+                    <p id="accountNumber">Account Number: 123456789</p>
                     <button id="editButton" class="btn">Edit Information</button>
-                    
-                    <a href="#"></a> <button type="submit"  onclick= "navigateTo(`{% url 'wallet' %}`)" class="btn">Wallet</button>
-                    <button class="btn" onclick= "navigateTo(`{% url 'add_money' %}`)" id="addMoneyButton">Add Money</button>
-                    <button class="btn" onclick= "navigateTo(`{% url 'withdraw_money' %}`)" id="withdrawMoneyButton">Withdraw Money</button>
-                    <button class="btn" onclick= "navigateTo(`{% url 'transfer_money' %}`)" id="transferMoneyButton">Transfer Money</button>
+                    <a href="#"></a><button type="submit" class="btn">Wallet</button>
+                    <button class="btn" id="addMoneyButton">Add Money</button>
+                    <button class="btn" id="withdrawMoneyButton">Withdraw Money</button>
+                    <button class="btn" id="transferMoneyButton">Transfer Money</button>
 
                 </div>
                 <div class="profile-edit" style="display: none;">
@@ -54,7 +52,7 @@
             </div>
         </div>
     </div>
-    
+    <script src="{% static 'js/profile.js' %}"></script>
 </body>
 </html>
 
