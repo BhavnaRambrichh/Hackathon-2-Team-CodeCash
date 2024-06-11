@@ -1,7 +1,8 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0 ;
-    background-image:url(Plant.jpg);
+    background-image:  url("/static/images/pbackground.jpg");
+
     background-position:center;
     background-size: cover;
     margin: 0;
