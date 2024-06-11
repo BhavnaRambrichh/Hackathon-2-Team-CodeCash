@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Money</title>
+</head>
+<body>
+    <h1>Transfer Money</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="to_account">To Account:</label>
+        <input type="text" name="to_account" required>
+        <label for="amount">Amount:</label>
+        <input type="number" name="amount" required>
+        <button type="submit">Transfer</button>
+    </form>
+    <a href="{% url 'wallet' %}">Back to Wallet</a>
+</body>
+</html>
