@@ -44,7 +44,7 @@ def register(request):
 
         messages.success(request, 'Account created successfully')
         return redirect('login_signup')
-    return render(request, 'main/login.html')
+    return render(request, 'main/login_signup.html')
 
 def login_view(request):
     if request.method == 'POST':
@@ -58,7 +58,7 @@ def login_view(request):
         else:
             messages.error(request, 'Invalid credentials')
             return redirect('login')
-    return render(request, 'main/login.html')
+    return render(request, 'main/login_html.html')
 
 
 @login_required
