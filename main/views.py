@@ -85,7 +85,4 @@ def wallet(request):
     return render(request, 'main/wallet.html', {'profile': profile, 'transactions': transactions})
 
 def forgot_password(request):
-    if request.method == 'POST':
-        # Add logic for password reset here
-        pass
     return render(request, 'main/forgot_password.html')
