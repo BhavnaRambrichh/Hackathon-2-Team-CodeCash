@@ -2,6 +2,10 @@ const addMoneyButton = document.getElementById('addMoneyButton');
 const withdrawMoneyButton = document.getElementById('withdrawMoneyButton');
 const transferMoneyButton = document.getElementById('transferMoneyButton');
 
+function navigateTo(url) {
+    window.location.href = url;
+}
+
 addMoneyButton.addEventListener('click', () => {
 });
 
@@ -53,3 +57,4 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 1000);
     });
 });
+

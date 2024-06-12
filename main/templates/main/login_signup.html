@@ -10,12 +10,13 @@
 <body>
     <div class="container" id="container">
         <div class="form-container register-container">
-            <form action="#">
+            <form method="post" action="{% url 'register' %}"></form>
+            {% csrf_token %}
                 <h1>Register here.</h1>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button type="button" id="registerBtn">Register</button>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" id="registerBtn">Register</button>
                 <span>or use your account</span>
             </form>
         </div>

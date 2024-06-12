@@ -8,4 +8,5 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('wallet/', views.wallet, name='wallet'),
     path('forgot_password/', views.forgot_password, name='forgot_password'),
+    path('add_money/', views.add_money, name='add_money'),
 ]
