@@ -1,68 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Double Slider Login/Registration Form</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/login_signup.css' %}">
-</head>
-<body>
-    <div class="container" id="container">
-        <div class="form-container register-container">
-            <form method="post"></form>
-            {% csrf_token %}
-                <h1>Register here.</h1>
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <input type="password" placeholder="Password" required>
-                <button type="submit" id="registerBtn">Register</button>
-                <span>or use your account</span>
-            </form>
-        </div>
-
-        <div class="form-container login-container">
-            <form method="post">
-                {% csrf_token %}
-                <h1>Login here.</h1>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <div class="content">
-                    <div class="checkbox">
-                        <input type="checkbox" name="checkbox" id="checkbox">
-                        <label for="checkbox">Remember me</label>
-                    </div>
-                    <div class="pass-link">
-                        <a href="#">Forgot Password?</a>
-
-                    </div>
-                </div>
-                <button type="submit" id="loginBtn">Login</button>
-        
-            </form>
-        </div>
-
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1 class="title">Hello<br> Users</h1>
-                    <p>If you have an account, login here.</p>
-                    <button class="ghost" id="login">Login</button>
-                </div>
-                
-                <div class="overlay-panel overlay-right">
-                    <h1 class="title">Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button class="ghost" id="register">Register</button>
-                </div>
-            </div>
-        </div>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <title>Double Slider Login/Registration Form</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/login_signup.css' %}">
+      </head>
+    <body>
+        <div class="container" id="container">
+      
+            <div class="form-container sign-up-container">
+                <form action="#">
+            <h1 id="title">Create Account</h1>
+			    <div class="social-container">
+				  <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				  <a href="#" class="social"><i class="fab fa-twitter"></i></a>
+				  <a href="#" class="social"><i class="fab fa-google"></i></a>
+          
+			  </div>
+        <span>Or use your email for registration</span>
+          <label for="name" id="name-label">
+          <input type="text" id="name" placeholder="Name" name="name" required /></label>
+          <label for="email" id="email-label">
+          <input type="email" id="email" placeholder="Email" name="email" required /></label>
+          <label for="password" id="password-label">
+			    <input type="password" id="password" placeholder="Password" name="password" required /></label>
+			  <button>Sign Up</button>
+		  </form>
     </div>
-
-    {% load static %}
+      
+    <div class="form-container sign-in-container">
+        <form action="#">
+			<h1 id="title">Sign in</h1>
+			<div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				  <a href="#" class="social"><i class="fab fa-twitter"></i></a>
+				  <a href="#" class="social"><i class="fab fa-google"></i></a>
+			</div>
+			<span>Or use your account</span>
+			<label for="email" id="email-label">
+        <input type="email" id="email" placeholder="Email" name="email" required /></label>
+      <label for="password" id="password-label">
+			    <input type="password" id="password" placeholder="Password" name="password" required /></label>
+			<a href="#">Forgot your password?</a>
+			<button>Sign In</button>
+		</form>
+    </div>
+      
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1 id="title">Welcome!</h1>
+				<p>Login with your personal info</p>
+				<button class="ghost" id="signIn">Sign In</button>
+          </div>
+          
+          <div class="overlay-panel overlay-right">
+            <h1 id="title">Hello!</h1>
+				<p>Enter your personal details and start</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
 <script src="{% static 'js/login_signup.js' %}"></script>
-</body>
+    </body>
 </html>
-
-
-
