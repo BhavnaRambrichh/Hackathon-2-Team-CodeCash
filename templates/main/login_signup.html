@@ -10,7 +10,7 @@
 <body>
     <div class="container" id="container">
         <div class="form-container register-container">
-            <form method="post" action="{% url 'register' %}"></form>
+            <form method="post"></form>
             {% csrf_token %}
                 <h1>Register here.</h1>
                 <input type="text" placeholder="Name" required>
@@ -22,7 +22,7 @@
         </div>
 
         <div class="form-container login-container">
-            <form method="post" action="{% url 'login' %}">
+            <form method="post">
                 {% csrf_token %}
                 <h1>Login here.</h1>
                 <input type="email" placeholder="Email">
