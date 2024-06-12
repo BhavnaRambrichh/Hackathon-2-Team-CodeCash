@@ -44,7 +44,7 @@ def register(request):
 
         messages.success(request, 'Account created successfully')
         return redirect('login_signup')
-    return render(request, 'main/login_signup.html/')
+    return render(request, 'main/login.html')
 
 def login_view(request):
     if request.method == 'POST':
@@ -57,8 +57,8 @@ def login_view(request):
             return redirect('profile')
         else:
             messages.error(request, 'Invalid credentials')
-            return redirect('login_signup')
-    return render(request, 'main/login_signup.html')
+            return redirect('login')
+    return render(request, 'main/login.html')
 
 
 @login_required
@@ -70,7 +70,7 @@ def profile_view(request):
         'email': user.email,
         'account_number': profile.account_number,
     }
-    return render(request, 'bankapp/profile.html', context)
+    return render(request, 'main,/profile.html', context)
 
 
 @login_required

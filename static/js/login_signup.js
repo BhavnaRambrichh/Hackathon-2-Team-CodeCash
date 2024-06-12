@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     registerButton.addEventListener('click', () => {
         container.classList.add('right-panel-active');
     });
-
     registerBtn.addEventListener('click', () => {
         
     });
@@ -20,4 +19,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
     loginBtn.addEventListener('click', () => {
         
     });
+
 });
