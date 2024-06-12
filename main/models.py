@@ -5,8 +5,10 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    account_number = models.CharField(max_length=12, unique=True)
+    account_number = models.CharField(max_length=9, unique=True)
     balance = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    def __str__(self):
+        return self.user.username
 
 class Transaction(models.Model):
     from_account = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='from_account')

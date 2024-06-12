@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+
+body {
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+    justify-content: center;
+
+}
+
+header {
+    background: ivory;
+    color: #fff;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    position: fixed;
+    width: 100%;
+    top: 0.5;
+    z-index: 1000;
+}
+
+
+nav{
+    height:80px;
+    width: 100%;
+    position: 300px;
+    top: 10%;
+    left: 300px;
+    padding: 15px 5%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-links{
+    width: 400px;
+    display: flex;
+    height: 100px;
+    margin: auto;
+    transition: 0.3s;
+}
+.nav-links a{
+    color: #203264;
+    text-decoration: none;
+    font-family:Helvetica, sans-serif;
+    display: flex;
+    justify-content: space-evenly;
+    text-align:top right;
+    font-weight: bolder;
+    width: 10px;
+    padding-left: 18px;
+    margin-left: 15px;
+    font-size: 12pt ;
+    transition: 0.4s ease-in-out;
+
+}
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    margin-left: 150px;
+    padding: 8px 12px;
+    position:relative;
+}
+.nav-links ul li a{
+    text-decoration: none;
+    color: #203264;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.4 ease-in-out;
+}
+.nav-links  li a:hover{
+    color: #8fa1ce;
+}
+
+
+.nav.logo{
+    display: flex;
+    align-items: left;
+}
+
+.logo img {
+    max-width: 200px; /* Adjust size as needed */
+    height: auto;
+}
+
+.nav.logo a {
+    color:white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    width:5cm ;
+    
+
+}
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin:auto;
+    height: 100px;
+    
+
+}
+
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 2rem;
+    overflow: hidden;
+}
+
+.hero .content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+.hero h1 {
+    font-size: 150px;
+    color:ivory;
+    font-family: Times, serif;
+    font-weight: 500;
+    transition: 0.5s;
+    
+}
+.hero h1:hover{
+    -webkit-text-stroke: 3.5px ivory;
+    color: transparent;
+}
+
+.hero a{
+    text-decoration: none;
+    display: inline-block;
+    color: ivory;
+    font-size: 24px;
+    padding: 14px 70px;
+    border: 2px solid #fff;
+    cursor: pointer;
+    border-radius:  50px; 
+    margin-top:  20px; 
+}
+
+.hero a:hover {
+    background: #8fa1ce;
+}
+
+.models, .about, .contact {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color:whitesmoke;
+}
+
+.models h2, .about h2, .contact h2 {
+    font-family: Times, serif;
+    font-size: 24pt;
+    margin-bottom: 1.5rem;
+}
+
+.model-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;    
+}
+
+.about p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 18pt;
+    color: #203264;
+}
+
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contact form label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.contact form input, .contact form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact form button {
+    background: #203264;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.contact form button:hover {
+    background: #8fa1ce;
+    border-radius: 10px;
+}
+
+footer {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar .nav-links {
+        position: absolute;
+        right: 0;
+        height: 92vh;
+        top: 8vh;
+        background: #000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        transition: all 0.5s ease-in;
+        clip-path: circle(50px at 90% -10%);
+        -webkit-clip-path: circle(50px at 90% -10%);
+    }
+
+    .navbar .nav-links.nav-active {
+        clip-path: circle(1000px at 90% -10%);
+        -webkit-clip-path: circle(1000px at 90% -10%);
+    }
+
+    .navbar .nav-links li {
+        opacity: 0;
+    }
+
+    .navbar .nav-links li:nth-child(1) {
+        transition: all 0.5s ease-in-out 0.2s;
+    }
+    .navbar .nav-links li:nth-child(2) {
+        transition: all 0.5s ease-in-out 0.4s;
+    }
+    .navbar .nav-links li:nth-child(3) {
+        transition: all 0.5s ease-in-out 0.6s;
+    }
+}
