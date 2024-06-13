@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 import random
 from django.contrib import messages
 from .supabase_client import supabase
-from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from .models import Transaction, Profile
-
+from .forms import SignUpForm, SignInForm
 
 def generate_account_number():
     return ''.join(random.choices('0123456789', k=12))
@@ -15,36 +15,64 @@ def generate_account_number():
 def welcome(request):
     return render(request, 'main/index.html')
 
-def register(request):
+# views.py
+
+def index(request):
     if request.method == 'POST':
-        name = request.POST['name']
-        email = request.POST['email']
-        password = request.POST['password']
-
-        # Check if user already exists
-        if User.objects.filter(email=email).exists():
-            messages.error(request, 'Email already exists')
-            return redirect('login')
+        if 'sign_up' in request.POST:
+            signup_form = SignUpForm(request.POST)
+            signin_form = SignInForm()
+            
+            if signup_form.is_valid():
+                user = signup_form.save()
+                login(request, user)
+                return redirect('login_signup')  # Redirect to home page after successful sign up
         
-        account_number = generate_account_number()
-        user = User.objects.create_user(username=name, email=email, password=password)
-        user.profile.account_number = account_number
-        user.save()
+        elif 'sign_in' in request.POST:
+            signin_form = SignInForm(data=request.POST)
+            signup_form = SignUpForm()
+            if signin_form.is_valid():
+                user = authenticate(username=signin_form.cleaned_data.get('username'), password=signin_form.cleaned_data.get('password'))
+                if user is not None:
+                    login(request, user)
+                    return redirect('profile')  # Redirect to home page after successful login
+    else:
+        signup_form = SignUpForm()
+        signin_form = SignInForm()
+    return render(request, 'main/template/main/login_signup.html', {'signup_form': signup_form, 'signin_form': signin_form})
 
-        # Add user to Supabase
-        response = supabase.from_('users').insert({
-            'username': name,
-            'email': email,
-            'password': password,
-        }).execute()
-        
-        if response.error:
-            messages.error(request, 'Error in Supabase')
-            return redirect('login')
 
-        messages.success(request, 'Account created successfully')
-        return redirect('login_signup')
-    return render(request, 'main/login_signup.html')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def login_view(request):
     if request.method == 'POST':
