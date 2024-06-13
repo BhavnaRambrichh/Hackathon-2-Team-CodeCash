@@ -8,7 +8,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	font-family: "Comic Sans MS", cursive, sans-serif;
+	font-family: "Times New Roman",sans-serif;
 	height: 2;
 	margin: 20px 0 50px;
 }
@@ -17,6 +17,7 @@ body {
     font-weight: bold;
 	margin: 0;
     font-size: 30px;
+	color:#203264;	
 }
 
 p {
@@ -29,22 +30,31 @@ span {
 }
 
 a {
-	color: #4A00E0;
+	color: #8FA1CE;
 	font-size: 12px;
 	text-decoration: none;
 	margin: 15px 0;
 }
 
+a:hover{
+	color: #203264;
+}
+
 button {
 	border-radius: 50px;
-	border: 1px solid #4A00E0;
-	background-color: #4A00E0;
-	color: #FFFFFF;
+	border: 1px solid #203264;
+	background-color: #8FA1CE;
+	color:#203264 ;
 	font-size: 12px;
 	font-weight: bold;
 	padding: 12px 45px;
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
+}
+button:hover{
+	background-color: #203264;
+	color: #8FA1CE;
+
 }
 
 button:active {
@@ -57,7 +67,7 @@ button:focus {
 
 button.ghost {
 	background-color: transparent;
-	border-color: #FFFFFF;
+	border-color: #8FA1CE;
 }
 
 form {
@@ -69,6 +79,7 @@ form {
 	padding: 0 50px;
 	height: 100%;
 	text-align: center;
+	
 }
 
 input {
@@ -151,8 +162,7 @@ input {
 
 .overlay {
 	background: #f6f5f7;
-	background: -webkit-linear-gradient(to right, #fc00ff, #00dbde);
-	background: linear-gradient(to right, #ff00cc, #333399);
+	background: url("/static/images/scenic.mp4?v=1.0");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -219,4 +229,3 @@ input {
 	height: 40px;
 	width: 40px;
 }
-
