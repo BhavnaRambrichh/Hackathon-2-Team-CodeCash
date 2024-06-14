@@ -16,7 +16,6 @@ def welcome(request):
     return render(request, 'main/index.html')
 
 # views.py
-
 def index(request):
     if request.method == 'POST':
         if 'sign_up' in request.POST:
@@ -39,54 +38,8 @@ def index(request):
     else:
         signup_form = SignUpForm()
         signin_form = SignInForm()
-    return render(request, 'main/template/main/login_signup.html', {'signup_form': signup_form, 'signin_form': signin_form})
+    return render(request, 'main/login_signup.html', {'signup_form': signup_form, 'signin_form': signin_form})
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def login_view(request):
-    if request.method == 'POST':
-        email = request.POST['email']
-        password = request.POST['password']
-        user = authenticate(request, username=email, password=password)
-
-        if user is not None:
-            login(request, user)
-            return redirect('profile')
-        else:
-            messages.error(request, 'Invalid credentials')
-            return redirect('login')
-    return render(request, 'main/login_html.html')
 
 
 @login_required

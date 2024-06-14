@@ -10,24 +10,26 @@
         <div class="container" id="container">
       
             <div class="form-container sign-up-container">
-                <form action="{% url 'index' %}" method ="POST">
-                  {% csrf_token %}
+                <form action="{% url 'login_signup' %}" method ="POST">
             <h1 id="title">Create Account</h1>
 			    <div class="social-container">
 				  <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
 				  <a href="#" class="social"><i class="fab fa-twitter"></i></a>
 				  <a href="#" class="social"><i class="fab fa-google"></i></a>
-          
-			  </div>
+          </div>
         <span>Or use your email for registration</span>
-        {{ signup_form.as_p }}
+        <label for="name" id="name-label">
+          <input type="text" id="name" placeholder="Name" name="name" required /></label>
+          <label for="email" id="email-label">
+          <input type="email" id="email" placeholder="Email" name="email" required /></label>
+          <label for="password" id="password-label">
+			    <input type="password" id="password" placeholder="Password" name="password" required /></label>
 			  <button type="submit" name="sign_up">Sign Up</button>
 		  </form>
     </div>
       
     <div class="form-container sign-in-container">
-        <form action="{% url 'index' %}" method ="POST"></form>
-        {% csrf_token %}
+        <form action="{% url 'login_signup' %}" method ="POST"></form>
 			<h1 id="title">Sign in</h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -35,7 +37,10 @@
 				<a href="#" class="social"><i class="fab fa-google"></i></a>
 			</div>
 			<span>Or use your account</span>
-      {{ signin_form.as_p }}
+      <label for="email" id="email-label">
+        <input type="email" id="email" placeholder="Email" name="email" required /></label>
+      <label for="password" id="password-label">
+			  <input type="password" id="password" placeholder="Password" name="password" required /></label>
 			<a href="#">Forgot your password?</a>
 			<button type="submit" name="sign_in">Sign In</button>
 		</form>
