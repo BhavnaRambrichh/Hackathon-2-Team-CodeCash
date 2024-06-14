@@ -44,7 +44,7 @@
         <input type="email" id="email" placeholder="Email" name="email" required /></label>
       <label for="password" id="password-label">
 			    <input type="password" id="password" placeholder="Password" name="password" required /></label>
-			<a href="#">Forgot your password?</a>
+			<a href="{% url 'password_reset_request'%}">Forgot your password?</a>
 			<button type="submit" name="sign_in">Sign In</button>
 		</form>
     </div>

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -7,7 +7,7 @@ from django.contrib import messages
 from .supabase_client import supabase
 from django.utils import timezone
 from .models import Transaction, Profile
-from .forms import SignUpForm, SignInForm
+from .forms import SignUpForm, SignInForm, SetNewPasswordForm, UsernameForm
 
 def generate_account_number():
     return ''.join(random.choices('0123456789', k=12))
@@ -166,3 +166,37 @@ def wallet_view(request):
 
     return render(request, 'wallet.html', {'transactions': transactions, 'balance': balance})
 
+def password_reset_request(request):
+    if request.method == 'POST':
+        form = UsernameForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            user = User.objects.filter(username=username).first()
+            if user:
+                request.session['reset_user_id'] = user.id
+                return redirect('password_reset_confirm')
+            else:
+                messages.error(request, 'Username not found')
+    else:
+        form = UsernameForm()
+    return render(request, 'password_reset_request.html', {'form': form})
+
+def password_reset_confirm(request):
+    if 'reset_user_id' not in request.session:
+        return redirect('password_reset_request')
+    
+    user_id = request.session['reset_user_id']
+    user = get_object_or_404(User, id=user_id)
+    
+    if request.method == 'POST':
+        form = SetNewPasswordForm(request.POST)
+        if form.is_valid():
+            new_password = form.cleaned_data.get('new_password')
+            user.set_password(new_password)
+            user.save()
+            messages.success(request, 'Password has been reset successfully.')
+            return redirect('login')
+    else:
+        form = SetNewPasswordForm()
+    
+    return render(request, 'password_reset_confirm.html', {'form': form})
