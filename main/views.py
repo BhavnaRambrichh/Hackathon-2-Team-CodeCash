@@ -42,7 +42,7 @@ def index(request):
 
 
 
-@login_required
+
 def profile_view(request):
     user = request.user
     profile = Profile.objects(User)
@@ -152,7 +152,6 @@ def transfer_money(request):
 
     return render(request, 'main/transfer_money.html')
 
-@login_required
 def wallet_view(request):
     transactions = Transaction.objects.filter(user=request.user).order_by('-timestamp')
     
@@ -179,7 +178,7 @@ def password_reset_request(request):
                 messages.error(request, 'Username not found')
     else:
         form = UsernameForm()
-    return render(request, 'password_reset_request.html', {'form': form})
+    return render(request, 'main/password_reset_request.html', {'form': form})
 
 def password_reset_confirm(request):
     if 'reset_user_id' not in request.session:
@@ -195,8 +194,8 @@ def password_reset_confirm(request):
             user.set_password(new_password)
             user.save()
             messages.success(request, 'Password has been reset successfully.')
-            return redirect('login')
+            return redirect('login_signup')
     else:
         form = SetNewPasswordForm()
     
-    return render(request, 'password_reset_confirm.html', {'form': form})
+    return render(request, 'main/password_reset_confirm.html', {'form': form})
